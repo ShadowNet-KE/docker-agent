@@ -15,7 +15,7 @@ pipeline {
             parallel {
                 stage('Windows') {
                     agent {
-                        label "docker-windows"
+                        label "jenkins-agent"
                     }
                     options {
                         timeout(time: 60, unit: 'MINUTES')
@@ -55,7 +55,7 @@ pipeline {
                 }
                 stage('Linux') {
                     agent {
-                        label "docker&&linux"
+                        label "jenkins-agent"
                     }
                     options {
                         timeout(time: 30, unit: 'MINUTES')
