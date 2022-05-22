@@ -21,7 +21,7 @@ pipeline {
                         timeout(time: 60, unit: 'MINUTES')
                     }
                     environment {
-                        DOCKERHUB_ORGANISATION = "${infra.isTrusted() ? 'jenkins' : 'jenkins4eval'}"
+                        DOCKERHUB_ORGANISATION = "${infra.isTrusted() ? 'buluma' : 'buluma4eval'}"
                     }
                     steps {
                         powershell '& ./build.ps1 test'
@@ -61,7 +61,7 @@ pipeline {
                         timeout(time: 30, unit: 'MINUTES')
                     }
                     environment {
-                        DOCKERHUB_ORGANISATION = "${infra.isTrusted() ? 'jenkins' : 'jenkins4eval'}"
+                        DOCKERHUB_ORGANISATION = "${infra.isTrusted() ? 'buluma' : 'buluma4eval'}"
                     }
                     steps {
                         sh './build.sh'
