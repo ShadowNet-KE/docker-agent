@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jenkins-agent' }
+    agent { label 'docker' }
 
     options {        
         buildDiscarder(logRotator(daysToKeepStr: '10'))
@@ -15,7 +15,7 @@ pipeline {
             parallel {
                 stage('Windows') {
                     agent {
-                        label "jenkins-agent"
+                        label "docker"
                     }
                     options {
                         timeout(time: 60, unit: 'MINUTES')
@@ -55,7 +55,7 @@ pipeline {
                 }
                 stage('Linux') {
                     agent {
-                        label "jenkins-agent"
+                        label "docker"
                     }
                     options {
                         timeout(time: 30, unit: 'MINUTES')
