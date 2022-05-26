@@ -1,5 +1,5 @@
 pipeline {
-    agent docker
+    agent { label 'jenkins-agent' }
 
     options {        
         buildDiscarder(logRotator(daysToKeepStr: '10'))
