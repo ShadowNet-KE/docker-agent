@@ -20,7 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #  THE SOFTWARE.
 
-FROM eclipse-temurin:17.0.3_7-jdk-focal AS jre-build
+# To avoid "jmods: Value too large for defined data type" error,
+FROM --platform=$BUILDPLATFORM eclipse-temurin:17.0.4.1_1-jdk-focal AS jre-build
 
 # Generate smaller java runtime without unneeded files
 # for now we include the full module path to maintain compatibility
@@ -33,7 +34,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM debian:bullseye-20220228
+FROM debian:bullseye-20220912
 
 ARG VERSION=4.13
 ARG user=jenkins

@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #  THE SOFTWARE.
 
-FROM eclipse-temurin:11.0.15_10-jdk-focal AS jre-build
+FROM eclipse-temurin:11.0.16.1_1-jdk-focal AS jre-build
 
 # Generate smaller java runtime without unneeded files
 # for now we include the full module path to maintain compatibility
@@ -33,7 +33,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM debian:bullseye-20220509
+FROM debian:bullseye-20220912
 
 ARG VERSION=4.13
 ARG user=jenkins
